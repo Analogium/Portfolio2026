@@ -1,0 +1,70 @@
+.card {
+  grid-column: 8 / 13;
+  grid-row: 3 / 6;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.25s, transform 0.25s;
+  cursor: default;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.pill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 5px 13px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.pill:hover {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: #fff;
+}
+
+.accent {
+  background: rgba(200, 241, 53, 0.1);
+  border-color: rgba(200, 241, 53, 0.3);
+  color: var(--accent);
+}
+
+.accent:hover {
+  background: rgba(200, 241, 53, 0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
