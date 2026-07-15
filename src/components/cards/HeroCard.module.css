@@ -82,6 +82,7 @@
 .actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -104,16 +105,46 @@
   transform: scale(1.03);
 }
 
-.ctaSecondary {
+.ctaCv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text);
   font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
+  font-weight: 600;
+  padding: 11px 20px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50px;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.ctaSecondary:hover {
+.ctaCv:hover {
+  background: var(--accent);
+  color: #0e0e0e;
+  transform: scale(1.03);
+}
+
+.ctaGithub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface2);
   color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.ctaGithub:hover {
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.03);
 }
 
 /* Mobile */

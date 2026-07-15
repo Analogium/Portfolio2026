@@ -4,16 +4,20 @@ import styles from './ProjectCard.module.css'
 interface Props {
   project: Project
   position: 'left' | 'right'
+  onSelect: (id: string) => void
 }
 
 const GRADIENT_LEFT = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)'
 const GRADIENT_RIGHT = 'linear-gradient(135deg, #1a0533 0%, #2d0b4e 50%, #4a1576 100%)'
 
-export function ProjectCard({ project, position }: Props) {
+export function ProjectCard({ project, position, onSelect }: Props) {
   const gradient = position === 'left' ? GRADIENT_LEFT : GRADIENT_RIGHT
 
   return (
-    <div className={`${styles.card} ${position === 'left' ? styles.left : styles.right}`}>
+    <div
+      className={`${styles.card} ${position === 'left' ? styles.left : styles.right}`}
+      onClick={() => onSelect(project.id)}
+    >
       <div className={styles.preview}>
         {project.image_url ? (
           <img src={project.image_url} alt={project.title} className={styles.previewImg} />
@@ -38,7 +42,7 @@ export function ProjectCard({ project, position }: Props) {
             ))}
           </div>
         </div>
-        <div className={styles.links}>
+        <div className={styles.links} onClick={(e) => e.stopPropagation()}>
           {project.live_url && (
             <a href={project.live_url} target="_blank" rel="noopener noreferrer" className={styles.linkBtn} title="Voir le projet">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">

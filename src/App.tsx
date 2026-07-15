@@ -58,6 +58,7 @@ export default function App() {
             loading={loading}
             error={error}
             onProjectsClick={() => navigate('projects')}
+            onProjectSelect={(id) => navigate({ type: 'project', id })}
           />
         )}
         {page === 'projects' && (

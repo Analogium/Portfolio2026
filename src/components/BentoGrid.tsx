@@ -14,9 +14,10 @@ interface Props {
   loading: boolean
   error: string | null
   onProjectsClick: () => void
+  onProjectSelect: (id: string) => void
 }
 
-export function BentoGrid({ profile, projects, loading, error, onProjectsClick }: Props) {
+export function BentoGrid({ profile, projects, loading, error, onProjectsClick, onProjectSelect }: Props) {
 
   if (loading) {
     return (
@@ -43,8 +44,8 @@ export function BentoGrid({ profile, projects, loading, error, onProjectsClick }
         <HeroCard profile={profile} />
         <StatusCard profile={profile} />
         <StackCard profile={profile} />
-        {project1 && <ProjectCard project={project1} position="left" />}
-        {project2 && <ProjectCard project={project2} position="right" />}
+        {project1 && <ProjectCard project={project1} position="left" onSelect={onProjectSelect} />}
+        {project2 && <ProjectCard project={project2} position="right" onSelect={onProjectSelect} />}
         <AboutCard profile={profile} />
         <ContactCard profile={profile} />
         <FunCard />
